@@ -2,40 +2,111 @@
 layout: blog
 ---
 
-<section class="mt-15">
-    {% set postslist = collections.post %}
-
-    {% for post in postslist | reverse %}
-        <article class="my-8">
-            <h2 class="font-bold text-3xl text-gray-900 mb-2">
-                <a href="{{ post.url | url }}">
-                    {% if post.data.title %}
-                        {{ post.data.title }}
-                    {% else %}
-                        Untitled
-                    {% endif %}
-                </a>
+<link rel="stylesheet" href="/static/css/Blog.css" media="screen" />
+<section class="u-clearfix u-grey-5 u-section-2" id="sec-63d8">
+  <div class="u-clearfix u-sheet u-sheet-1">
+    <!--blog--><!--blog_options_json--><!--{"type":"Recent","source":"","tags":"","count":""}--><!--/blog_options_json-->
+    <div class="u-align-center u-blog u-layout-grid u-blog-1">
+      <div class="u-repeater u-repeater-1">
+        {% set postslist = collections.post %} {% for post in postslist |
+        reverse %}
+        <div
+          class="
+            u-blog-post u-container-style u-repeater-item u-shape-rectangle
+          "
+        >
+          <div
+            class="u-container-layout u-similar-container u-container-layout-3"
+          >
+            <!--blog_post_header-->
+            <h2
+              class="
+                u-blog-control
+                u-custom-font
+                u-font-oswald
+                u-text
+                u-text-custom-color-1
+                u-text-1
+              "
+            >
+              <a class="u-post-header-link" href="{{ post.url | url }}"
+                >{% if post.data.title %} {{ post.data.title }} {% else %}
+                Untitled {% endif %}</a
+              >
             </h2>
-            <p class="text-base leading-6 text-gray-500 mb-3">
-                <time>
-                    {{ post.date | readableDate }}
-                    by
-                    <a>{{ post.data.author }}</a>
-
-                </time>
+            <!--/blog_post_header-->
+            <a class="u-post-header-link" href="{{ post.url | url }}"
+              ><!--blog_post_image-->
+              <img
+                alt=""
+                class="
+                  u-blog-control
+                  u-expanded-width
+                  u-image
+                  u-image-default
+                  u-image-1
+                "
+                src="/static/img/repreneur-small-business-concept-woman-showing-coworkers-something-laptop-computer-as-they-gather-around-conference-table_1.jpg"
+                data-image-width="626"
+                data-image-height="417"
+              /><!--/blog_post_image--> </a
+            ><!--blog_post_content-->
+            <p
+              class="
+                u-blog-control
+                u-custom-font
+                u-font-open-sans
+                u-post-content
+                u-text
+                u-text-2
+              "
+            >
+              {% if post.data.description %} {{ post.data.description }} {%
+              endif %}
             </p>
-            {% if post.data.description %}
-                <p class="text-lg text-gray-500 mb-3">
-                    {{ post.data.description }}
-                </p>
-            {% endif %}
+            <!--/blog_post_content--><!--blog_post_metadata-->
+            <div
+              class="
+                u-blog-control
+                u-custom-font
+                u-font-oswald
+                u-metadata
+                u-metadata-1
+              "
+            >
+              <!--blog_post_metadata_author-->
+              <span class="u-meta-author u-meta-icon"
+                >{{ post.data.author }}</span
+              ><!--/blog_post_metadata_author--><!--blog_post_metadata_date-->
+              <span class="u-meta-date u-meta-icon"
+                >{{ post.date | readableDate }}</span
+              ><!--/blog_post_metadata_date-->
+            </div>
+            <!--/blog_post_metadata--><!--blog_post_readmore-->
+            <a
+              href="{{ post.url | url }}"
+              class="
+                u-blog-control
+                u-border-1
+                u-border-active-palette-2-base
+                u-border-hover-palette-1-base
+                u-btn
+                u-button-style
+                u-none
+                u-text-active-grey-60
+                u-text-custom-color-1
+                u-text-hover-grey-60
+                u-btn-1
+              "
+              ><!--blog_post_readmore_content--><!--options_json--><!--{"content":""}--><!--/options_json-->Read
+              More<!--/blog_post_readmore_content--></a
+            ><!--/blog_post_readmore-->
+          </div>
+        </div>
 
-            <p>
-                <a href="{{ post.url | url }}" class="text-indigo-500 font-bold text-lg">
-                    Read more →
-                </a>
-            </p>
-
-        </article>
-    {% endfor %}
+        {% endfor %}
+      </div>
+    </div>
+    <!--/blog-->
+  </div>
 </section>
